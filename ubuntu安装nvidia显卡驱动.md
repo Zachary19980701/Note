@@ -83,8 +83,8 @@ Would you like to run the nvidia-xconfigutility to automatically update your x c
 安装完成之后有可能重启之后驱动掉了，这个时候不要慌，重启一下，在grub界面看下是不是有多个内核了，有多个内核，直接选旧的那个应该就行。可以选择自己固定一下内核，这就不在赘述了。
 ## 参考链接
 感谢互联网的分享精神，下面是当时浏览器中还没关掉的链接，只是自己参考的一小部分，其他的在历史记录里太多了就不一一放上了。
-[](https://blog.csdn.net/youduba7/article/details/128094633)
-[](https://blog.csdn.net/seaship/article/details/86233325?fromshare=blogdetail&sharetype=blogdetail&sharerId=86233325&sharerefer=PC&sharesource=qq_43293480&sharefrom=from_link)
-[](https://blog.csdn.net/ChaoFeiLi/article/details/110945692?fromshare=blogdetail&sharetype=blogdetail&sharerId=110945692&sharerefer=PC&sharesource=qq_43293480&sharefrom=from_link)
-[](https://blog.csdn.net/ChaoFeiLi/article/details/110945692?fromshare=blogdetail&sharetype=blogdetail&sharerId=110945692&sharerefer=PC&sharesource=qq_43293480&sharefrom=from_link)
+[Ubuntu在安装NVIDIA驱动后黑屏无法启动进入图形桌面](https://blog.csdn.net/youduba7/article/details/128094633)
+[xorg-xserver相关完全解析](https://blog.csdn.net/seaship/article/details/86233325?fromshare=blogdetail&sharetype=blogdetail&sharerId=86233325&sharerefer=PC&sharesource=qq_43293480&sharefrom=from_link)
+[Ubuntu离线安装Nvidia显卡驱动](https://blog.csdn.net/ChaoFeiLi/article/details/110945692?fromshare=blogdetail&sharetype=blogdetail&sharerId=110945692&sharerefer=PC&sharesource=qq_43293480&sharefrom=from_link)
+[Ubuntu离线安装Nvidia显卡驱动](https://blog.csdn.net/ChaoFeiLi/article/details/110945692?fromshare=blogdetail&sharetype=blogdetail&sharerId=110945692&sharerefer=PC&sharesource=qq_43293480&sharefrom=from_link)
 
