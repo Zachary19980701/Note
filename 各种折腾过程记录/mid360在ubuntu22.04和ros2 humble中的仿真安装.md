@@ -82,3 +82,7 @@ gazebo仿真小车分为两个部分，一部分是结构信息与物理信息(�
 至此就更改完成了，重新编译，启动，即可看到livox雷达的仿真效果。
 ![](images/2024-11-16-22-45-29.png)
 ![](images/2024-11-16-22-45-52.png)
+# 特别感谢
+[zm_robot](https://github.com/qaz9517532846/zm_robot/tree/ros2)
+[LIhanchen大佬移植的livox_ROS2仿真包](https://github.com/LihanChen2004/livox_laser_simulation_ros2?tab=readme-ov-file)
+顺便推荐一下Lihanchen大佬的另一项工作[pb_rm_simulation](https://github.com/LihanChen2004/pb_rm_simulation/tree/main)
