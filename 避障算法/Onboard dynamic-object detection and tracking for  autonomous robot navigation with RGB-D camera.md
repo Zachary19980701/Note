@@ -21,4 +21,19 @@ the author presents a **multi-detector** to obstain fast and accurate obstracle 
 3. point cloud feature vectors and object track points to identify correct object matches and estimate their states
 4. KD-Tree map is directly constructed from the LiDAR point cloud for dynamic obstacle avoidance [Avoiding dynamic small obstacles with onboard sensing and computation on aerial robots]
 ## System Review
-![](2024-12-06-22-20-53.png)
+![图 2](../images/ecf7845735353bbd25e4ce6fbbb9e278b3f87c20fa4f106f5cf8dae5f0824d7f.png)  
+**The system can be disilluted into three parts:**
+- Pointcloud and image input
+- Mutli-detector for obstacles detection, which  departed into two parts: Non-learning detection and Learning-based detection.
+- Obstacle association and tracking
+- Dynamic obstacle indentication
+- Remove dynamic obstacles from map
+- Output dynamic osbtacles
+### 3D-osbtacle detector
+Three methods obstacle detector are presented:
+- **U-depth**
+- **DB-SCAN**
+- **YOLO-MAD**
+And all detectors return axis-aligned bounding box(AABB)
+#### U-depth
+
