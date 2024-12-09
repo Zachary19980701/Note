@@ -28,13 +28,14 @@ the author presents a **multi-detector** to obstain fast and accurate obstracle 
 - Dynamic obstacle indentication
 - Remove dynamic obstacles from map
 - Output dynamic osbtacles
-### 3D-osbtacle detector
+## 3D-osbtacle detector
 Three methods obstacle detector are presented:
 - **U-depth**
 - **DB-SCAN**
 - **YOLO-MAD**
+
 And all detectors return axis-aligned bounding box(AABB)
-#### U-depth
+### U-depth
 [U-depth](https://github.com/uf-robopi/UDepth)
 U depth map is a point cloud map which dipicts the depth of the x y plane. V-depth map dipicts the depth of the z y plane.
 **the anthor presents three U-depth map obstacle detectors:**
@@ -67,5 +68,5 @@ After getting obstacle $w_i$, use **continuity check** on original depth iamge t
 
 Transfrom obstacle to world/map coordinate.
 
-##### the present U-depth methods
+#### the present U-depth methods
 
