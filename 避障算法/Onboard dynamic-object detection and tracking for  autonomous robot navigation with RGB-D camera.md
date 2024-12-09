@@ -20,8 +20,7 @@ the author presents a **multi-detector** to obstain fast and accurate obstracle 
 2. clustering-based detection for indoor dynamic obstacle avoidance [Autonomous flights in dynamic environments with onboard vision]
 3. point cloud feature vectors and object track points to identify correct object matches and estimate their states
 4. KD-Tree map is directly constructed from the LiDAR point cloud for dynamic obstacle avoidance [Avoiding dynamic small obstacles with onboard sensing and computation on aerial robots]
-## System Review
-![图 2](../images/ecf7845735353bbd25e4ce6fbbb9e278b3f87c20fa4f106f5cf8dae5f0824d7f.png)  
+## System Review 
 **The system can be disilluted into three parts:**
 - Pointcloud and image input
 - Mutli-detector for obstacles detection, which  departed into two parts: Non-learning detection and Learning-based detection.
@@ -51,9 +50,13 @@ U depth map is a point cloud map which dipicts the depth of the x y plane. V-dep
 
 U-depth map can be viewed as the **top-down view** from camera.
 the original depth image:
+
 ![](images/2024-12-09-13-58-37.png)
+
 the U-depth map image:
+
 ![](images/2024-12-09-13-59-39.png)
+
 the U-depth image has same width with orginal depth image, the height indciates the distance from camera. So we can get obstacles thicnkness by the height of U-depth map.
 when get a depth image, we can compute U-depth map by **computing column depth value histogram.**
 
