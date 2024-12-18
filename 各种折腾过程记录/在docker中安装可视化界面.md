@@ -7,7 +7,7 @@ docker run -it -p 5900:5900 -v /tmp/.x11-unix:/tmp/.x1 zkjoker/laserslam:v4 /bin
 启动了一个容器，端口为5900，映射到主机的5900端口，挂载了/tmp/.x11-unix目录。
 ## 启动一个虚拟的显示服务器-Xvfb
 ```bash
-Xvfb :1 -screen 0 1024x768x24 &
+Xvfb :1 -screen 0 1600x900x24 &
 ```
 启动了一个虚拟的显示服务器，端口为:1，分辨率位1024x768，颜色为24。
 这时候查看是否报错，如果报错:Xvfb: command not found。需要安装xvfb
