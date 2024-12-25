@@ -1,4 +1,4 @@
-# Admissible gap navigation: A new collision avoidance approach
+# Admissible gap navigation: A new collision avoidance approach (TODO)
 相比于搜索式算法，基于gap的反应式算法能够在未知的稠密复杂环境中高效导航。可接受的gap是由两部分组成的：1. 机器人能够避免碰撞 2. 符合机器人的运动约束。
 本文相对于传统的基于gap的导航方法不同，考虑精确的形状形状和运动学，而不是直接对方向进行规划。反应式的基本原则是，一旦穿越过gap，就直接向目标移动。
 ## Introduction
@@ -270,4 +270,6 @@ graph TD
 ```
 
 ## 查缺补漏
-### 如何计算配置点pc
+### 配置点pc
+**什么是配置点$P_c$** (TODO)
+对配置点$P_c$进行详细解释，并且对整个方法的基本工作原理进行梳理。
