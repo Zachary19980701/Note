@@ -18,3 +18,6 @@ Existing approaches range from simple reactive methods using 1D distance sensors
 
 # 分层地图 Hierarchical map
 本文使用[wavemap](https://github.com/ethz-asl/wavemap)作为分层体素地图的实现方法。
+
+# 避障方法的使用
+本文的避障方法使用人工势场法进行避障
