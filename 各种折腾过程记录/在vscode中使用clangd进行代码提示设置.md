@@ -16,8 +16,16 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 ```json
 {
     "clangd.arguments": [
-        "--compile-commands-dir=${workspaceFolder}"
+        "--compile-commands-dir=/home/robot/gap_detour_ws/build/reactive_assistance", //指定到你指定的文件夹
     ],
+    "clangd.path": "/usr/bin/clangd",
     "C_Cpp.default.configurationProvider": "llvm-vs-code-extensions.vscode-clangd"
 }
 ```
+## 关于远程主机中设置的一些坑
+**1. 远程ssh无法进行代码补全**
+因为在之前的设置中，没有指定clangd的位置，导致远程时依然要从本地的路径中寻找clangd的解释器，添加一行说明文件：
+```json
+"clangd.path": "/usr/bin/clangd",
+```
+这样子就可以从远程主机中寻找clangd的解释器。
