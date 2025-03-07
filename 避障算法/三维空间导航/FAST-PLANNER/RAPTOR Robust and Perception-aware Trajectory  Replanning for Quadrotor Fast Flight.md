@@ -32,3 +32,28 @@ It takes the outputs of the global planning, dense mapping and state estimation 
 **整个重规划分为两步进行工作**
 - Firstly, the robust optimistic replanning generates multiple locally optimal trajectories in parallel through the path-guided optimization (Sect.IV).通过路径引导优化的鲁棒重规划，在可通行区域生成局部的优化路径。The optimization is guided by topologically distinctive paths extracted and carefully selected from the topological path searching, which will be detailed in Sect.优化路线是通过挑选的拓扑路线进行搜索引导的。
 - Secondly, the perception-aware planning strategy is utilized.The best trajectory among the locally optimal ones is further polished by a risk-aware trajectory refinement, in which its safety and visibility to the unknown and dangerous space is improved, as presented in Sect.VI.第二步对感知模块进行优化，通过感知信息获得更优的yaw角约束。
+
+
+## PATH-GUIDED TRAJECTORY OPTIMIZATION 路径引导的轨迹优化
+在section 2-A中，GTO方法在局部路径规划中速度非常快，但是存在路径的极小点问题。
+针对上述问题，本文提出了PGO算法，使用几何路径规划来提高生成路径的成功率。
+### 优化失效分析
+GTO会由于初始规划的不合适导致规划的失败，传统在解决这个问题时会添加欧氏距离作为约束，但是添加距离约束之后还是会有局部最优的现象。
+### problem formulation 问题界定
+使用B样条曲线作为基础的规划曲线，是一个低消耗的曲线规划。
+For a trajectory segment in collision, we reparameterize it as a pb degree uniform B-spline with control points {q0, q1, . . . , qN } and knot span ∆t.
+对于一段轨迹，将这段轨迹的B样条设置为一个包含（q_0, q_1, ..., q_N）的控制点和knot span ∆t
+
+**PGO包含两种不同的相**
+1. **生成一段 intermediate warmip trajectory**
+也就是用环境的信息来变形轨迹而不是单独的使用ESDF,本文使用几何路径引导，将初始的轨迹引导到自由空间上。
+本文中的工作中，无碰撞的轨迹是哟欧基于采样的拓扑路径搜索实现的。
+第一阶段的目标函数为：
+![](images/2025-03-07-21-39-28.png)
+f_S是平滑项，f_g是平滑代价。平滑代价的计算方式是引导路径点到样条曲线之间的距离。
+简化fs的形式，通过B样条的方法来简化fs的计算形式。
+每个控制点qi在引导路径上分配一个关联点gi，gi沿引导路径均匀采样。然后将fg定义为这些点对之间的平方欧氏距离之和。
+It outputs a smooth trajectory in the vicinity of the guiding path.会生成一条基本上大部分无碰撞的初始轨迹，论文中叫热身轨迹。使用这种方法能够将大部分的轨迹放置到无障碍的空间中，在使用标准的GTO算法来优化提升轨迹。Hence, standard GTO methods can be utilized to improve the trajectory.
+2. **轨迹的进一步平滑**
+将预热轨迹进一步细化为平滑、安全、动态可行的轨迹
+![](images/2025-03-07-22-34-11.png)
