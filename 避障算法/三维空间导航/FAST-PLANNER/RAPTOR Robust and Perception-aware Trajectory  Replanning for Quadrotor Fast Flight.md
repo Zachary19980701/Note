@@ -55,5 +55,19 @@ f_S是平滑项，f_g是平滑代价。平滑代价的计算方式是引导路�
 每个控制点qi在引导路径上分配一个关联点gi，gi沿引导路径均匀采样。然后将fg定义为这些点对之间的平方欧氏距离之和。
 It outputs a smooth trajectory in the vicinity of the guiding path.会生成一条基本上大部分无碰撞的初始轨迹，论文中叫热身轨迹。使用这种方法能够将大部分的轨迹放置到无障碍的空间中，在使用标准的GTO算法来优化提升轨迹。Hence, standard GTO methods can be utilized to improve the trajectory.
 2. **轨迹的进一步平滑**
-将预热轨迹进一步细化为平滑、安全、动态可行的轨迹
+将预热轨迹进一步细化为平滑、安全、动态可行的轨迹，使用B样条曲线进行优化
 ![](images/2025-03-07-22-34-11.png)
+
+
+由于第一步有了一个较好的轨迹，因此第二步能够较快的进行优化。
+
+
+### TOPOLOGICAL PATH SEARCHING 拓扑路径搜索
+However, this trajectory is restricted within a topologically equivalent class and not necessarily satisfactory, even with the guidance of the shortest path, as seen in Fig. 8(e) and 8(f).
+但是这个路径并不是一个全局最优的，即使在最短路径的引导下依然不是。同时，由于机器人运动的多种速度与加速度叠加，因此最优路线也难以评估。
+本文提出的解决方法是使用基于采样的拓扑路径搜索来实现在空间中的快速检索。
+
+#### Topology Equivalence Relation 拓扑等价关系
+**拓扑等价关系**
+本文添加了一种新的拓扑等价关系，对于空间中的拓扑等价关系(VD)，添加一个额外的约束Based on VD, we define uniform visibility deformation (UVD), which also captures abundant useful trajectories, and is more efficient for equivalence checking.
+
