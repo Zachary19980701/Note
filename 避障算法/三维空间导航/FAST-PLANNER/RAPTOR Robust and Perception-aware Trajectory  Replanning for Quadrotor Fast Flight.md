@@ -71,3 +71,28 @@ However, this trajectory is restricted within a topologically equivalent class a
 **拓扑等价关系**
 本文添加了一种新的拓扑等价关系，对于空间中的拓扑等价关系(VD)，添加一个额外的约束Based on VD, we define uniform visibility deformation (UVD), which also captures abundant useful trajectories, and is more efficient for equivalence checking.
 
+**拓扑路图 topo roadmap**
+![](images/2025-04-05-09-22-39.png)
+这个算法相比标准的PRM方法构建出冗余的拓扑路线图，这个方法能够构建出更加紧凑的路线图。
+拓扑路线图包含两个部分，一个是图的节点 node，在论文中表示为保护节点(guard node)和图的边，论文中表示为(conntecor).，保护节点图和连接节点图，guard node and connector。
+The guards are responsible for exploring different part of the free space, and any two guards g1 and g2 are not visible to each other (line g1g2 is in collision).
+guards 代表探索自由空间中的不同部分，并且两个守卫节点互相不可见。
+
+在程序初始化阶段，在开始点和结束点创建了两个保护点
+
+Every time a sampled point is invisible to all other guards, a new guard is created at this point (Line 6-7)
+每当一个采样点对其他采样点不可见时，就在这个采样点创建新的守卫节点
+
+当图中的节点数大于2时，就使用连接器创建两个节点的之间连线作为path
+
+当一个采样点恰好对两个保护可见时，创建一个新的连接器，或者连接保护以形成拓扑不同的连接(第19 ~ 20行)，或者替换现有的连接器以形成更短的路径( Line 1617 )。
+
+Limits of time (tmax) or sampling number (Nmax) are set to terminate the loop.
+程序将在最大的循环次数之后结束
+
+通过这个循环，程序建立一个深度优先的的路线。
+
+**路径缩短和修剪**
+
+
+
