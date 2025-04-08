@@ -93,6 +93,22 @@ Limits of time (tmax) or sampling number (Nmax) are set to terminate the loop.
 通过这个循环，程序建立一个深度优先的的路线。
 
 **路径缩短和修剪**
+由于PGO的过度优化和变形，一些路径是绕远的。
+Hence, Alg. 2 find a topologically equivalent shortcut path Ps for each Pr found by the depth-first search (illustrated in Fig. 9).
+算法二寻找每一个路径P_r的等效路径P_s
 
+For this reason, we only select the first Kmax shortest paths. Paths more than rmax times longer than the shortest one are also pruned away. Such strategies bound the complexity and will not miss the potentially optimal solution, because a very long path is very unlikely to result in the optimal trajectory.
 
+因此，我们仅选择第一个kmax最短路径。路径比最短的路径长于最短的路径。这种策略构成了复杂性，不会错过潜在的最佳解决方案，因为很长的路径极不可能导致最佳轨迹。
 
+### 基于风险感知的轨迹优化 RISK-AWARE TRAJECTORY REFINEMENT
+我们的轨迹改进从平行的PGO PI（T）中获得最佳的轨迹作为输入，将其修改为附近，并输出精制的轨迹PR（t）（在ALG.3中详细介绍）。它首先检查PI（t）的可见性状态，之后，在迭代细化中对相关未知空间的可见性和安全反应距离进行了实施。
+将搜索到的拓扑路径进行优化，然后使用未知空间可见性和安全距离等进行更进一步的优化
+#### 检查可见性
+可见状态包含以下几个状态：
+$t_f$
+$P_f$
+$t_c$
+$P_c$
+$V_c$
+![](images/2025-04-08-23-36-15.png)
