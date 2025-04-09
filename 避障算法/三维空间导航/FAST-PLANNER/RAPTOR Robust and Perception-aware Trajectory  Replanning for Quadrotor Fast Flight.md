@@ -112,3 +112,9 @@ $t_c$
 $P_c$
 $V_c$
 ![](images/2025-04-08-23-36-15.png)
+
+#### 迭代优化Iterative Refinement
+
+
+### YAW ANGLE PLANNING yaw角的进一步优化
+对偏航角进行进一步的优化
